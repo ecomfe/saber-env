@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>UA Detect</title>
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-6/esl.js"></script>
+    <script>
+    require.config({
+        packages: [
+            {
+                name: 'saber-env',
+                location: '../src'
+            }
+        ]
+    });
+    </script>
+</head>
+<body>
+    <script>
+        require( ['saber-env/detect' ], function( env ) {
+            console.log(env);
+        });
+    </script>
+</body>
+</html>

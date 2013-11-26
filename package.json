@@ -1,0 +1,11 @@
+{
+    "name": "saber-env",
+    "version": "0.0.1-beta.1",
+    "description": "移动端浏览器环境检测",
+    "maintainers": [
+        { "name": "firede", "email": "firede@firede.us" }
+    ],
+    "license": "BSD",
+    "repository": "git://github.com/ecomfe/saber-env.git",
+    "bugs": "https://github.com/ecomfe/saber-div/issues"
+}
