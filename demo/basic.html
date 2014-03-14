@@ -18,8 +18,9 @@
 </head>
 <body>
     <script>
-        require( [ 'saber-env' ], function( env, ct ) {
-            console.log( env );
+        require( [ 'saber-env', 'saber-env/connection' ], function( env, connection ) {
+            console.log( 'env:', env );
+            console.info( 'connection:', connection );
         });
     </script>
 </body>
