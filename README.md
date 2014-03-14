@@ -1,4 +1,4 @@
-# saber-env
+# saber-env [![Build Status](https://travis-ci.org/ecomfe/saber-env.png)](https://travis-ci.org/ecomfe/saber-env)
 
 Browser detect based on `zepto/detect.js`.
 
