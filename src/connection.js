@@ -8,6 +8,7 @@ define(function( require ) {
     var exports = {};
 
     var connection = navigator.connection || {};
+    var supportEvent = !!( connection && connection.addEventListener );
 
     // old api
     // see http://www.w3.org/TR/2011/WD-netinfo-api-20110607/
@@ -18,6 +19,7 @@ define(function( require ) {
             CONNECTION_TYPE[ index ] = CONNECTION_TYPE_MAP[ type ] = type;
         }
     );
+
     var _type = connection.type;
     _type = CONNECTION_TYPE[ _type ] || CONNECTION_TYPE_MAP[ _type ] || CONNECTION_TYPE[ 6 ];
 
@@ -27,6 +29,7 @@ define(function( require ) {
 
         /**
          * 
+         * @public
          * @type {number}
          * @desc 0 ~ Infinity MB/s
          */
@@ -38,6 +41,7 @@ define(function( require ) {
 
         /**
          * 
+         * @public
          * @type {boolean}
          */
         metered: {
@@ -48,11 +52,33 @@ define(function( require ) {
 
         /**
          * 
+         * @public
          * @type {string}
          */
         type: {
             value: _type,
             writable: false,
+            configurable: false
+        },
+
+        /**
+         * 
+         * @public
+         * @type {Function?}
+         */
+        onchange: {
+            get: supportEvent
+                ? function () {
+                    return connection.onchange;
+                }
+                : function () {
+                },
+            set: supportEvent
+                ? function ( fn ) {
+                    connection.onchange = fn;
+                }
+                : function () {
+                },
             configurable: false
         }
 
@@ -60,13 +86,19 @@ define(function( require ) {
 
     Object.defineProperties( exports, prototype );
 
-    // TODO
-    exports.onchange = function () {
-    };
-
-    // TODO
-    exports.addEventListener = function ( type, fn, isCapture ) {
-    };
+    /**
+     * add event handlers
+     * 
+     * @public
+     * @param {string} name event name
+     * @param {Function} listener event handler
+     * @param {boolean} useCapture capturing mode
+     */
+    exports.addEventListener = supportEvent
+        ? function () {
+            connection.addEventListener.apply( connection, arguments );
+        }
+        : function () {};
 
     return exports;
 
