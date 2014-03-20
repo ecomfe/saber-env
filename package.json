@@ -1,6 +1,6 @@
 {
     "name": "saber-env",
-    "version": "0.1.1-beta.1",
+    "version": "0.2.0",
     "description": "移动端浏览器环境检测",
     "maintainers": [
         { "name": "firede", "email": "firede@firede.us" }
