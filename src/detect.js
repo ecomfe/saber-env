@@ -37,16 +37,22 @@ define(function( require ) {
         chrome = ua.match( /Chrome\/([\d.]+)/ ) || ua.match( /CriOS\/([\d.]+)/ ),
         firefox = ua.match( /Firefox\/([\d.]+)/),
         ie = ua.match( /MSIE\s([\d.]+)/) || ua.match( /Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/ ),
+
         webview = !chrome && ua.match( /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/ ),
         safari = webview || ua.match( /Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/ ),
 
-        baidu = ua.match( /baiduboxapp\// )
+        baidu = ua.match( /baiduboxapp\/[^\/]+\/([\d.]+)_/ )
+            || ua.match( /baiduboxapp\/([\d.]+)/ )
             || ua.match( /BaiduHD\/([\d.]+)/ )
-            || ua.match( /FlyFlow\/([\d.]+)/ );
-
-        qq = ua.match( /MQQBrowser\/([\d.]+)/ );
-
-        uc = ua.match( /UCBrowser\/([\d.]+)/ );
+            || ua.match( /FlyFlow\/([\d.]+)/ )
+            || ua.match( /baidubrowser\/([\d.]+)/ ),
+        qq = ua.match( /MQQBrowser\/([\d.]+)/ )
+            || ua.match( /QQ\/([\d.]+)/ ),
+        uc = ua.match( /UCBrowser\/([\d.]+)/ ),
+        sogou = ua.match( /SogouMobileBrowser\/([\d.]+)/ ),
+        xiaomi = android && ua.match( /MiuiBrowser\/([\d.]+)/ ),
+        liebao = ua.match( /LBKIT/ ),
+        mercury = ua.match( /Mercury\/([\d.]+)/ );
 
         // Todo: clean this up with a better OS/browser seperation:
         // - discern (more) between multiple browsers on android
@@ -129,16 +135,35 @@ define(function( require ) {
             browser.webview = true;
         }
         if ( baidu ) {
+            delete browser.webview;
             browser.baidu = true;
-            // browser.version = baidu[1];
+            browser.version = baidu[1];
         }
         if ( qq ) {
             browser.qq = true;
-            // browser.version = qq[1];
+            browser.version = qq[1];
         }
         if ( uc ) {
+            delete browser.webview;
             browser.uc = true;
-            // browser.version = uc[1];
+            browser.version = uc[1];
+        }
+        if ( sogou ) {
+            delete browser.webview;
+            browser.sogou = true;
+            browser.version = sogou[1];
+        }
+        if ( xiaomi ) {
+            browser.xiaomi = true;
+            browser.version = xiaomi[1];
+        }
+        if ( liebao ) {
+            browser.liebao = true;
+            browser.version = '0';
+        }
+        if ( mercury ) {
+            browser.mercury = true;
+            browser.version = mercury[1];
         }
 
         os.tablet = !!(

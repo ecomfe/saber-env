@@ -18,6 +18,7 @@
 </head>
 <body>
     <script>
+        document.write( navigator.userAgent );
         require( [ 'saber-env', 'saber-env/connection' ], function( env, connection ) {
             console.log( 'env:', env );
             console.info( 'connection:', connection );
