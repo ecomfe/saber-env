@@ -102,36 +102,11 @@ require( 'saber-env', function( env ) {
 
 ## connection模块
 
-### {boolean} .bandwidth
-
-当前网络带宽信息(MB/s), **目前支持率较少**
-
-### {boolean} .metered
-
-当前网络连接是否可计量, **此属性支持极少，几乎无用**
-
 ### {boolean} .type
 
 当前网络状态类型
 
 可能的值为: `unknown`、`ethernet`、`wifi`、`2g`、`3g`、`4g`、`none`
-
-### {Function?} .onchange
-
-网络状态变化监听
-
-### {void} .addEventListener( type, fn, useCapture )
-
-网络状态变化监听
-
-#### 参数
-
-`name` {string} 事件名 (**注：仅当取值`change`时有效**)
-
-`listener` {Function} 监听函数
-
-`useCapture` {boolean} 捕获模式
-
 
 ## media模块
 

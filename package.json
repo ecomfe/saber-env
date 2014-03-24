@@ -1,12 +1,12 @@
 {
     "name": "saber-env",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "移动端浏览器环境检测",
     "maintainers": [
-        { "name": "firede", "email": "firede@firede.us" }
+        { "name": "zfkun", "email": "zfkun@msn.com" }
     ],
     "contributors": [
-        { "name": "zfkun", "email": "zfkun@msn.com" }
+        { "name": "firede", "email": "firede@firede.us" }
     ],
     "scripts": {
         "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
