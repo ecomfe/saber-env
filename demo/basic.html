@@ -19,12 +19,10 @@
 <body>
     <script>
         document.write( navigator.userAgent );
-        require( [ 'saber-env', 'saber-env/connection' ], function( env, connection ) {
+        require( [ 'saber-env', 'saber-env/connection', 'saber-env/media' ], function( env, connection, media ) {
             console.log( 'env:', env );
-            console.info( 'connection:', connection );
-            connection.addEventListener( 'change', function () {
-                console.info( connection );
-            }, false );
+            console.info( 'connection:', connection.type );
+            console.info( 'audio/mp3:', media.canPlay( 'audio/mp3' ) );
         });
     </script>
 </body>

@@ -14,19 +14,11 @@ define(function() {
         });
 
         it( 'should return correct.', function() {
-            expect( connection.hasOwnProperty( 'bandwidth' ) ).toEqual( true );
-            expect( typeof connection.bandwidth ).toEqual( 'number' );
-            
-            expect( connection.hasOwnProperty( 'metered' ) ).toEqual( true );
-            expect( typeof connection.metered ).toEqual( 'boolean' );
-            
             expect( connection.hasOwnProperty( 'type' ) ).toEqual( true );
             expect( typeof connection.type ).toEqual( 'string' );
-            
-            expect( connection.hasOwnProperty( 'onchange' ) ).toEqual( true );
-
-            expect( connection.hasOwnProperty( 'addEventListener' ) ).toEqual( true );
-            expect( typeof connection.addEventListener ).toEqual( 'function' );
+            expect(
+                ',unknown,ethernet,wifi,2g,3g,4g,none,'.indexOf( ',' + connection.type + ',' ) >= 0
+            ).toEqual( true );
         });
 
     });
