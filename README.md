@@ -120,7 +120,7 @@ require( 'saber-env', function( env ) {
 
 网络状态变化监听
 
-### {void} .addEventListener( type, fn, )
+### {void} .addEventListener( type, fn, useCapture )
 
 网络状态变化监听
 
@@ -135,7 +135,7 @@ require( 'saber-env', function( env ) {
 
 ## media模块
 
-### {string|boolean} media.canPlay( type )
+### {string|boolean} .canPlay( type )
 
 检测是否支持指定的`音频`或`视频`类型
 
