@@ -108,6 +108,8 @@ require( 'saber-env', function( env ) {
 
 可能的值为: `unknown`、`ethernet`、`wifi`、`2g`、`3g`、`4g`、`none`
 
+**注: 当`无法检测/检测失败/其他异常`情况下默认返回`unknown`**
+
 ## media模块
 
 ### {string|boolean} .canPlay( type )

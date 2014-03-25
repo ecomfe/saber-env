@@ -18,7 +18,7 @@ define(function( require ) {
         }
     );
 
-    exports.type = CONNECTION_TYPE[ _type ] || CONNECTION_TYPE_MAP[ _type ] || CONNECTION_TYPE[ 6 ];
+    exports.type = CONNECTION_TYPE[ _type ] || CONNECTION_TYPE_MAP[ _type ] || CONNECTION_TYPE[ 0 ];
 
 
     return exports;
