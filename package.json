@@ -1,6 +1,6 @@
 {
     "name": "saber-env",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "移动端浏览器环境检测",
     "maintainers": [
         { "name": "zfkun", "email": "zfkun@msn.com" }
