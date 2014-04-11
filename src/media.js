@@ -8,6 +8,14 @@ define(function( require ) {
     var exports = {};
 
     /**
+     * 预创建`Audio`对象，查询频率较高时可节省点内存
+     * 
+     * @inner
+     * @type {HTMLAudioElement}
+     */
+    var audio = window.Audio ? new window.Audio() : null;
+
+    /**
      * 检测是否支持指定的音频/视频类型
      * 
      * @public
@@ -15,9 +23,9 @@ define(function( require ) {
      * @return {string|boolean} 检测结果
      * 不支持返回`false`,可能支持返回`maybe`，最有可能支持返回`probably`
      */
-    exports.canPlay = window.Audio
+    exports.canPlay = audio
         ? function ( type ) {
-            var rs = ( new window.Audio() ).canPlayType( type );
+            var rs = audio.canPlayType( type );
             return !rs ? false : rs;
         }
         : function () {
