@@ -13,7 +13,7 @@ define(function( require ) {
 
     /**
      * UserAgent Detect
-     * 
+     *
      * @inner
      * @param {string} ua navigator.userAgent
      * @return {Object}

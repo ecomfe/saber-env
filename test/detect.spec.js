@@ -306,7 +306,7 @@ define(function() {
                                     return _env.browser[ key ] === true;
                                 })
                             ).toEqual( true );
-                            
+
                             expect( _env.os.version ).toEqual( _os.pop() );
                             expect(
                                 _os.every(function ( key ) {
