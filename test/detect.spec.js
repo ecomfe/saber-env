@@ -280,6 +280,17 @@ define(function() {
             ],
         },
 
+        kindle: {
+            webkit: [
+                // Kindle
+                [
+                'Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)',
+                'webkit,528.5',
+                'kindle,3.0'
+                ]
+            ]
+        },
+
         blackberry: {
             webkit: [
                 // blackberry
