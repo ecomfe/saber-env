@@ -26,6 +26,14 @@ define(function() {
                 ]
             ],
 
+            firefox: [
+                [
+                'Mozilla/5.0 (Android; Tablet; rv:13.0) Gecko/13.0 Firefox/13.0',
+                'firefox,13.0',
+                ''
+                ]
+            ],
+
             uc: [
                 [
                 'Mozilla/5.0 (Linux; U; Android 2.3.5; zh-CN; HTC Desire HD A9191 Build/GRJ90) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.6.2.404 U3/0.8.0 Mobile Safari/533.1',
@@ -272,9 +280,76 @@ define(function() {
             ],
         },
 
-        blackberry: {},
+        blackberry: {
+            webkit: [
+                // blackberry
+                [
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-GB) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.141 Mobile Safari/534.1+',
+                'webkit,534.1',
+                'blackberry,phone,6.0.0.141'
+                ],
 
-        wp: {}
+                // playbook
+                [
+                'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/0.0.1 Safari/534.8+',
+                'playbook,webkit,534.8',
+                'rimtabletos,tablet,1.0.0'
+                ],
+
+                // bb10
+                [
+                'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+',
+                'webkit,537.1',
+                'bb10,phone,10.0.0.1337'
+                ]
+            ]
+        },
+
+        wp: {
+            ie: [
+                // IE9
+                [
+                'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)',
+                'ie,9.0',
+                ''
+                ],
+
+                // IE9 Compat
+                [
+                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)',
+                'ie,7.0',
+                ''
+                ],
+
+                // IE10
+                [
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+                'ie,10.0',
+                ''
+                ],
+
+                // IE11
+                [
+                'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko',
+                'ie,11',
+                ''
+                ],
+
+                // WP8
+                [
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; Windows Phone 8X by HTC)',
+                'ie,10.0',
+                'wp,phone,8.0'
+                ],
+
+                // Surface RT
+                [
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)',
+                'ie,10.0',
+                ''
+                ]
+            ]
+        }
 
     };
 
@@ -298,7 +373,7 @@ define(function() {
                         UAS[ pf ][ bs ].forEach(function ( val ) {
                             var _env = detect( val[ 0 ] );
                             var _browser = val[ 1 ].split( ',' );
-                            var _os = val[ 2 ].split( ',' );
+                            var _os = val[ 2 ].length ? val[ 2 ].split( ',' ) : [];
 
                             expect( _env.browser.version ).toEqual( _browser.pop() );
                             expect(
@@ -307,12 +382,15 @@ define(function() {
                                 })
                             ).toEqual( true );
 
-                            expect( _env.os.version ).toEqual( _os.pop() );
-                            expect(
-                                _os.every(function ( key ) {
-                                    return _env.os[ key ] === true;
-                                })
-                            ).toEqual( true );
+                            if ( _os.length ) {
+                                expect( _env.os.version ).toEqual( _os.pop() );
+                                expect(
+                                    _os.every(function ( key ) {
+                                        return _env.os[ key ] === true;
+                                    })
+                                ).toEqual( true );
+                            }
+
                         });
                     });
                 })( platform, browser );
