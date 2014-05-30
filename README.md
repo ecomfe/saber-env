@@ -145,4 +145,4 @@ require( 'saber-env', function( env ) {
 + `audio/ogg; codecs="vorbis"`
 + `audio/mp4; codecs="mp4a.40.5"`
 
-**注, 如果包含编解码器，则只会返回 `probably`****注, 如果包含编解码器，则只会返回 `probably`**
+**注, 如果包含编解码器，则只会返回 `probably`**
