@@ -13,7 +13,7 @@ define(function( require ) {
 
     /**
      * UserAgent Detect
-     * 
+     *
      * @inner
      * @param {string} ua navigator.userAgent
      * @return {Object}
@@ -27,6 +27,7 @@ define(function( require ) {
         ipod = ua.match( /(iPod)(.*OS\s([\d_]+))?/ ),
         iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/ ),
         webos = ua.match( /(webOS|hpwOS)[\s\/]([\d.]+)/ ),
+        wp = ua.match(/Windows Phone ([\d.]+)/),
         touchpad = webos && ua.match( /TouchPad/ ),
         kindle = ua.match( /Kindle\/([\d.]+)/ ),
         silk = ua.match( /Silk\/([\d._]+)/ ),
@@ -41,6 +42,7 @@ define(function( require ) {
         webview = !chrome && ua.match( /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/ ),
         safari = webview || ua.match( /Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/ ),
 
+        wechat = ua.match( /MicroMessenger\/([\d.]+)/ ),
         baidu = ua.match( /baiduboxapp\/[^\/]+\/([\d.]+)_/ )
             || ua.match( /baiduboxapp\/([\d.]+)/ )
             || ua.match( /BaiduHD\/([\d.]+)/ )
@@ -79,6 +81,10 @@ define(function( require ) {
         if ( ipod ) {
             os.ios = os.ipod = true;
             os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
+        }
+        if ( wp ) {
+            os.wp = true;
+            os.version = wp[1];
         }
         if ( webos ) {
             os.webos = true;
@@ -134,6 +140,10 @@ define(function( require ) {
         if ( webview ) {
             browser.webview = true;
         }
+        if ( wechat ) {
+            browser.wechat = true;
+            browser.version = wechat[1];
+        }
         if ( baidu ) {
             delete browser.webview;
             browser.baidu = true;
@@ -164,6 +174,9 @@ define(function( require ) {
         if ( mercury ) {
             browser.mercury = true;
             browser.version = mercury[1];
+        }
+        if ( navigator.standalone ) {
+            browser.standalone = true;
         }
 
         os.tablet = !!(

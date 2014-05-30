@@ -46,17 +46,18 @@ require( 'saber-env', function( env ) {
 
 系统信息对象，包含的可能项:
 
-+ `version` 版本信息
++ `version`
 
 `通用平台类型`
 
-+ `phone` 手机平台
-+ `tablet` 平板平台
++ `phone`
++ `tablet`
 
 `特定系统类型`
 
-+ `ios` iOS系统
++ `ios`
 + `android`
++ `wp`
 + `blackberry`
 + `bb10`
 + `rimtabletos`
@@ -75,7 +76,7 @@ require( 'saber-env', function( env ) {
 
 浏览器信息对象，支持的返回值:
 
-+ `version` 版本信息
++ `version`
 
 `通用类型`
 
@@ -89,6 +90,7 @@ require( 'saber-env', function( env ) {
 
 `国产加壳类型`，检测值为以下列表时`version`取值为`浏览器壳`的版本号
 
++ `wechat`
 + `baidu`
 + `qq`
 + `uc`
@@ -96,6 +98,10 @@ require( 'saber-env', function( env ) {
 + `xiaomi`
 + `liebao`
 + `mercury`
+
+`特殊类型`
+
++ `standalone` 浏览器全屏状态
 
 
 ## 可选模块API
@@ -139,4 +145,4 @@ require( 'saber-env', function( env ) {
 + `audio/ogg; codecs="vorbis"`
 + `audio/mp4; codecs="mp4a.40.5"`
 
-**注, 如果包含编解码器，则只会返回 `probably`**
+**注, 如果包含编解码器，则只会返回 `probably`****注, 如果包含编解码器，则只会返回 `probably`**
