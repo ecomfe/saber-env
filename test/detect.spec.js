@@ -131,6 +131,29 @@ define(function() {
                 ]
             ],
 
+            wechat: [
+                // iPhone
+                [
+                'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MicroMessenger/5.3',
+                'wechat,safari,webkit,webview,5.3',
+                'ios,iphone,phone,7.1.1'
+                ],
+
+                // iPod
+                [
+                'Mozilla/5.0 (iPod; CPU iPhone OS 6_1_5 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B400 MicroMessenger/5.3',
+                'wechat,safari,webkit,webview,5.3',
+                'ios,ipod,6.1.5'
+                ],
+
+                // iPad
+                [
+                'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a MicroMessenger/5.3',
+                'wechat,safari,webkit,webview,5.3',
+                'ios,iphone,phone,7.0.4'
+                ]
+            ],
+
             // maxthon
             chrome: [
                 // iPhone
