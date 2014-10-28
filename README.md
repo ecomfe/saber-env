@@ -111,9 +111,9 @@ require( 'saber-env', function( env ) {
 
 ## Optional Modules 可选模块
 
-* [Object](./connection) connection模块
+* [Object](./src/connection.js) connection模块
 	* require('saber-env/connection') 
-* [Object](./media) media模块
+* [Object](./src/media.js) media模块
 	* require('saber-env/media') 
 
 ## connection模块
