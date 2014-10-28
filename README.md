@@ -2,13 +2,15 @@
 
 移动端浏览器环境检测
 
+## Installation
+
+通过 [edp](https://github.com/ecomfe/edp) 引入模块：
+
+```sh
+edp import saber-env
+```
+
 ## Usage
-
-### 通过`edp`引入模块
-
-    edp import saber-env
-
-### 使用示例
 
 ```javascript
 require( 'saber-env', function( env ) {
@@ -41,8 +43,11 @@ require( 'saber-env', function( env ) {
     }
 }
 ```
+* _return_ `{Object}`
+    * **os** `{Object}` 系统信息对象
+    * **browser** `{Object}` 浏览器信息对象
 
-#### {Object} .os
+#### os
 
 系统信息对象，包含的可能项:
 
@@ -72,7 +77,7 @@ require( 'saber-env', function( env ) {
 + `webos`
 
 
-#### {Object} .browser
+#### browser
 
 浏览器信息对象，支持的返回值:
 
@@ -104,13 +109,17 @@ require( 'saber-env', function( env ) {
 + `standalone` 浏览器全屏状态
 
 
-## 可选模块API
+## Optional Modules 可选模块
+
+* [Object](./connection) connection模块
+	* require('saber-env/connection') 
+* [Object](./media) media模块
+	* require('saber-env/media') 
 
 ## connection模块
 
-### {boolean} .type
-
-当前网络状态类型
+* _return_ `{Object}`
+    * **type** `{string}` 当前网络状态类型
 
 可能的值为: `unknown`、`ethernet`、`wifi`、`2g`、`3g`、`4g`、`none`
 
@@ -118,13 +127,16 @@ require( 'saber-env', function( env ) {
 
 ## media模块
 
-### {string|boolean} .canPlay( type )
+### Methods
+
+#### canPlay( type )
 
 检测是否支持指定的`音频`或`视频`类型
 
-`不支持`时返回`false`, `可能支持`时返回`maybe`，`最有可能支持`时返回`probably`
+* **type** `{string}` 媒体类型描述串
+* _return_ `{string|boolean}`
+    `不支持`时返回`false`, `可能支持`时返回`maybe`，`最有可能支持`时返回`probably`
 
-#### 参数
 
 `type` 为媒体类型描述串，可能的值为:
 
