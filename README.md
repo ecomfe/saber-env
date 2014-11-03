@@ -1,4 +1,5 @@
-# saber-env [![Build Status](https://travis-ci.org/ecomfe/saber-env.png)](https://travis-ci.org/ecomfe/saber-env)
+saber-env [![Build Status](https://travis-ci.org/ecomfe/saber-env.png)](https://travis-ci.org/ecomfe/saber-env)
+===
 
 移动端浏览器环境检测
 
@@ -12,19 +13,19 @@ edp import saber-env
 
 ## Usage
 
-```javascript
-require( 'saber-env', function( env ) {
+```js
+require('saber-env', function(env) {
     // detect os info
-    console.info( env.os );
+    console.info(env.os);
 
     // detect browser info
-    console.info( env.browser );
+    console.info(env.browser);
 });
 ```
 
-### 返回值结构
+返回值结构：
 
-```javascript
+```js
 {
     os: {
         phone: true,
@@ -43,13 +44,18 @@ require( 'saber-env', function( env ) {
     }
 }
 ```
+
 * _return_ `{Object}`
     * **os** `{Object}` 系统信息对象
     * **browser** `{Object}` 浏览器信息对象
 
+## API
+
+### Methods
+
 #### os
 
-系统信息对象，包含的可能项:
+系统信息对象，包含的可能项：
 
 + `version`
 
@@ -79,7 +85,7 @@ require( 'saber-env', function( env ) {
 
 #### browser
 
-浏览器信息对象，支持的返回值:
+浏览器信息对象，支持的返回值：
 
 + `version`
 
@@ -108,53 +114,7 @@ require( 'saber-env', function( env ) {
 
 + `standalone` 浏览器全屏状态
 
+### Optional Modules
 
-## Optional Modules 可选模块
-
-* [Object](./src/connection.js) connection模块
-	* require('saber-env/connection') 
-* [Object](./src/media.js) media模块
-	* require('saber-env/media') 
-
-## connection模块
-
-* _return_ `{Object}`
-    * **type** `{string}` 当前网络状态类型
-
-可能的值为: `unknown`、`ethernet`、`wifi`、`2g`、`3g`、`4g`、`none`
-
-**注: 当`无法检测/检测失败/其他异常`情况下默认返回`unknown`**
-
-## media模块
-
-### Methods
-
-#### canPlay( type )
-
-检测是否支持指定的`音频`或`视频`类型
-
-* **type** `{string}` 媒体类型描述串
-* _return_ `{string|boolean}`
-    `不支持`时返回`false`, `可能支持`时返回`maybe`，`最有可能支持`时返回`probably`
-
-
-`type` 为媒体类型描述串，可能的值为:
-
-常用型
-
-+ `video/ogg`
-+ `video/mp4`
-+ `video/webm`
-+ `audio/mpeg`
-+ `audio/ogg`
-+ `audio/mp4`
-
-常用值，包括编解码器
-
-+ `video/ogg; codecs="theora, vorbis"`
-+ `video/mp4; codecs="avc1.4D401E, mp4a.40.2"`
-+ `video/webm; codecs="vp8.0, vorbis"`
-+ `audio/ogg; codecs="vorbis"`
-+ `audio/mp4; codecs="mp4a.40.5"`
-
-**注, 如果包含编解码器，则只会返回 `probably`****注, 如果包含编解码器，则只会返回 `probably`**
+* [Media](./doc/media.md)
+* [Connection](./doc/connection.md)
