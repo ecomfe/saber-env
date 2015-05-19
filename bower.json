@@ -1,0 +1,35 @@
+{
+  "name": "saber-env",
+  "version": "1.0.0",
+  "description": "移动端浏览器环境检测",
+  "maintainers": [
+    {
+      "name": "redmed",
+      "email": "qiaogang2003@163.com"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "firede",
+      "email": "firede@firede.us"
+    },
+    {
+      "name": "zfkun",
+      "email": "zfkun@msn.com"
+    }
+  ],
+  "devDependencies": {
+    "phantomjs": "~1.9"
+  },
+  "license": "MIT",
+  "repository": "git://github.com/ecomfe/saber-env.git",
+  "bugs": "https://github.com/ecomfe/saber-env/issues",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "doc",
+    "demo"
+  ]
+}
